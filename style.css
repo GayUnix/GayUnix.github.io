@@ -1,0 +1,103 @@
+html, body{
+    background: linear-gradient(85deg, #1D1D1F, #1d1d1d);
+    color: #f5f5f7;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+    user-zoom: none;
+    margin: 0;
+    scrollbar-width: 0;
+    width: 100vw;
+    min-height: 100vh;
+    scroll-snap-type: y mandatory;
+    scroll-snap-align: center;
+    position: relative;
+}
+
+body::-webkit-scrollbar{
+    width: 0;
+}
+
+#pointer{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100rem;
+    background-color: #c0c0c0;
+    position: absolute;
+    transform: translateX(-10px) translateY(-10px);
+}
+
+#title{
+    background: -webkit-linear-gradient(85deg, #c0c0c0, #f5f5f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.7vw;
+    letter-spacing: 1.5vw;
+}
+
+#server{
+    cursor: pointer;
+}
+
+section{
+    width: 100vw;
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(15px);
+}
+
+/*--------------------------------------------*/
+.card {
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(165, 174, 192, 0.7);
+    /* background-color: #1d1d1d; */
+}
+
+.c-details span {
+    font-weight: 300;
+    font-size: 13px
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    background-color: #eee;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 39px
+}
+
+.badge span {
+    width: 60px;
+    height: 25px;
+    padding-bottom: 3px;
+    border-radius: 5px;
+    display: flex;
+    color: #fed85d;
+    justify-content: center;
+    align-items: center
+}
+
+.progress {
+    height: 10px;
+    border-radius: 10px
+}
+
+.progress div {
+    background-color: red
+}
+
+.text1 {
+    font-size: 14px;
+    font-weight: 600
+}
+
+.text2 {
+    color: #a5aec0
+}
+/*--------------------------------------------*/
