@@ -1,5 +1,8 @@
-html, body{
-    background: linear-gradient(85deg, #1D1D1F, #1d1d1d);
+html, body {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
     color: #f5f5f7;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     user-select: none;
@@ -10,23 +13,30 @@ html, body{
     min-height: 100vh;
     scroll-snap-type: y mandatory;
     scroll-snap-align: center;
-    position: relative;
 }
 
-body::-webkit-scrollbar{
+body > div {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+body::-webkit-scrollbar {
     width: 0;
 }
 
-#pointer{
+pointer{
     width: 3rem;
     height: 3rem;
     border-radius: 100rem;
     background-color: #c0c0c0;
     position: absolute;
+    z-index: 20;
     transform: translateX(-10px) translateY(-10px);
 }
 
-#title{
+#title {
     background: -webkit-linear-gradient(85deg, #c0c0c0, #f5f5f7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -34,70 +44,105 @@ body::-webkit-scrollbar{
     letter-spacing: 1.5vw;
 }
 
-#server{
+#server {
     cursor: pointer;
 }
 
-section{
+body > section {
     width: 100vw;
     height: 100vh;
     scroll-snap-align: start;
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 25;
     align-items: center;
     backdrop-filter: blur(15px);
 }
 
-/*--------------------------------------------*/
-.card {
-    border: none;
-    border-radius: 10px;
-    background-color: rgba(165, 174, 192, 0.7);
-    /* background-color: #1d1d1d; */
+.everythingexceptthefirstthingthatsucksawfully{
+    background: linear-gradient(white, #27273c);
+    color: #27273c;
 }
 
-.c-details span {
-    font-weight: 300;
-    font-size: 13px
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1)
+    }
+
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55)
+    }
+
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1)
+    }
 }
 
-.icon {
-    width: 50px;
-    height: 50px;
-    background-color: #eee;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 39px
+.waveWrapper {
+    overflow: hidden;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
 }
 
-.badge span {
-    width: 60px;
-    height: 25px;
-    padding-bottom: 3px;
-    border-radius: 5px;
-    display: flex;
-    color: #fed85d;
-    justify-content: center;
-    align-items: center
+.waveWrapperInner {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
 }
 
-.progress {
-    height: 10px;
-    border-radius: 10px
+.bgTop {
+    z-index: 15;
+    opacity: 0.5;
 }
 
-.progress div {
-    background-color: red
+.bgMiddle {
+    z-index: 10;
+    opacity: 0.75;
 }
 
-.text1 {
-    font-size: 14px;
-    font-weight: 600
+.bgBottom {
+    z-index: 5;
 }
 
-.text2 {
-    color: #a5aec0
+.wave {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
 }
-/*--------------------------------------------*/
+
+.waveTop {
+    background-size: 50% 100px;
+}
+
+.waveAnimation .waveTop {
+    animation: move-wave 3s;
+    -webkit-animation: move-wave 3s;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+
+.waveMiddle {
+    background-size: 50% 120px;
+}
+
+.waveAnimation .waveMiddle {
+    animation: move_wave 10s linear infinite;
+}
+
+.waveBottom {
+    background-size: 50% 100px;
+}
+
+.waveAnimation .waveBottom {
+    animation: move_wave 15s linear infinite;
+}
